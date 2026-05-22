@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Game - IFDB Biru Cerah</title>
+    <style>
+        /* CSS Dasar */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #e3f2fd;
+            color: #333;
+        }
+
+        /* Navigasi */
+        nav {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 500;
+        }
+
+        .search-bar {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #0056b3;
+            outline: none;
+        }
+
+        /* Konten Utama */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.15);
+            overflow: hidden;
+        }
+
+        .content-padding {
+            padding: 30px;
+        }
+
+        .img-container {
+            width: 100%;
+            margin-bottom: 0;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        h2 {
+            color: #0056b3;
+            margin-top: 0;
+        }
+
+        /* Tab Menu */
+        .tabs {
+            border-bottom: 2px solid #bbdefb;
+            margin-bottom: 25px;
+        }
+
+        .tab {
+            display: inline-block;
+            padding: 10px 25px;
+            cursor: pointer;
+            color: #007bff;
+            transition: 0.3s;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .tab.active {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Form Pencarian */
+        .main-search {
+            margin: 25px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .main-search input[type="text"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: 2px solid #bbdefb;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .main-search input[type="submit"] {
+            padding: 10px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Tips */
+        .tips {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-left: 5px solid #007bff;
+            border-radius: 5px;
+        }
+
+        /* --- BAGIAN BARU: INFO SECTION --- */
+        .info-section {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .info-text {
+            flex: 1; /* Mengambil sisa ruang di kiri */
+        }
+
+        .info-image {
+            flex: 1; /* Mengambil sisa ruang di kanan */
+            text-align: right;
+        }
+
+        .info-image img {
+            width: 100%;
+            max-width: 350px; /* Ukuran maksimal foto */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 600px) {
+            .info-section {
+                flex-direction: column; /* Tumpuk ke bawah jika layar kecil */
+                text-align: center;
+            }
+            .info-image {
+                order: -1; /* Foto pindah ke atas deskripsi pada mobile */
+                text-align: center;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.85em;
+            color: #546e7a;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div>
+            <a href="#">Rumah</a>
+            <a href="#">Jelajahi</a>
+            <input type="text" class="search-bar" placeholder="Cari game...">
+        </div>
+        <div>
+            <a href="#">Masuk</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="img-container">
+            <img src="RAYYAN.png" alt="Gambar Rayyan" class="profile-img">
+        </div>
+
+        <div class="content-padding">
+            <h2>Mencari</h2>
+
+            <div class="tabs">
+                <span class="tab active">Pertandingan</span>
+                <span class="tab">Daftar</span>
+                <span class="tab">Jajak Pendapat</span>
+                <span class="tab">Kompetisi</span>
+            </div>
+
+            <form class="main-search">
+                <input type="text" placeholder="Masukkan kata kunci pencarian...">
+                <input type="submit" value="Cari Game">
+            </form>
+
+            <div class="tips">
+                <h3>Tips Pencarian</h3>
+                <p>Gunakan tanda kutip untuk mencari frase pasti, contoh: <b>"deep space"</b>.</p>
+                <ul>
+                    <li><b style="color: #007bff;">+kata</b> : Wajib ada</li>
+                    <li><b style="color: #007bff;">-kata</b> : Kecualikan kata</li>
+                </ul>
+            </div>
+
+            <!-- BAGIAN BARU DI BAWAH TIPS -->
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+            
+            <div class="info-section">
+                <div class="info-text">
+                    <h3>about me</h3>
+                    <p>Saya adalah seorang siswa al-amjad yang sedang menyelesaikan tugas membuat sebuah website, dan website ini adalah hasil dari kerja    kerasku. Makasih udah mau mampir.</p>
+                    <p>kalau mau tahu lebih lanjut, cari aku di real life ya.</p>
+                </div>
+                <div class="info-image">
+                    <!-- Ganti 'foto-kanan.jpg' dengan nama file gambar Anda -->
+                    <img src="rayyan.jpg" alt="Foto Deskripsi" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+         Hubungi Kami | Kode Etik | Syarat & Ketentuan | Privasi
+    </footer>
+
+</body>
+</html>
